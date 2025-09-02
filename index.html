@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Practice</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background-color: #f97316;
+            color: #fff;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        .header p {
+            font-size: 1rem;
+            font-weight: 400;
+            margin-top: 0.5rem;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding-left: 0.5rem;
+            border-left: 4px solid #f97316;
+        }
+        .task-container {
+            margin-bottom: 2rem;
+        }
+        .question-group {
+            background-color: #fafafa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .question-number {
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+        .question-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .question-text {
+            flex-grow: 1;
+            margin-right: 1rem;
+        }
+        .input-group {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .input-group input[type="radio"] {
+            display: none;
+        }
+        .input-group label {
+            padding: 0.5rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .input-group input[type="radio"]:checked + label {
+            background-color: #f97316;
+            color: #fff;
+            border-color: #f97316;
+        }
+        .fill-in-blank {
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            padding: 0.25rem 0.5rem;
+            outline: none;
+            width: 150px;
+        }
+        .fill-in-blank:focus {
+            border-color: #f97316;
+        }
+        .fill-in-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .button {
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            color: #fff;
+            border-radius: 0.75rem;
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+        .check-button {
+            background-color: #f97316;
+        }
+        .check-button:hover {
+            background-color: #e56613;
+        }
+        .reset-button {
+            background-color: #6b7280;
+        }
+        .reset-button:hover {
+            background-color: #4b5563;
+        }
+        .feedback-correct {
+            font-weight: 600;
+            color: #10b981;
+            margin-left: 1rem;
+        }
+        .feedback-incorrect {
+            font-weight: 600;
+            color: #ef4444;
+            margin-left: 1rem;
+        }
+        .explanation {
+            font-size: 0.875rem;
+            color: #4b5563;
+            margin-top: 0.5rem;
+            padding-left: 1.5rem;
+            border-left: 2px solid #ef4444;
+            display: none;
+        }
+        .error-sentence {
+            text-decoration: underline;
+            text-decoration-color: #ef4444;
+            text-decoration-thickness: 2px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4">
+
+    <div class="container">
+        <div class="header">
+            <h1 class="main-title">English with Mixlass</h1>
+            <p>LEARN.SHARE.CONNECT</p>
+        </div>
+
+        <!-- VOCABULARY section -->
+        <h2 class="section-title">VOCABULARY: people and relationships</h2>
+        <div class="task-container">
+            <div class="question-group">
+                <p><strong>1A</strong> Choose the correct word to complete the sentences.</p>
+                <div class="space-y-4 mt-4">
+                    <!-- Question 1 -->
+                    <div class="question-item">
+                        <span class="question-number">1</span>
+                        <div class="question-text flex-grow">
+                            <span class="mr-2">I'm going to ask my ... if she can increase my pay.</span>
+                        </div>
+                        <div class="input-group">
+                            <input type="radio" id="q1_a" name="q1" value="A">
+                            <label for="q1_a">a. colleague</label>
+                            <input type="radio" id="q1_b" name="q1" value="B">
+                            <label for="q1_b">b. manager</label>
+                            <input type="radio" id="q1_c" name="q1" value="C">
+                            <label for="q1_c">c. teammate</label>
+                        </div>
+                        <span id="feedback_q1"></span>
+                        <div class="explanation"></div>
+                    </div>
+                    <!-- Question 2 -->
+                    <div class="question-item">
+                        <span class="question-number">2</span>
+                        <div class="question-text flex-grow">
+                            <span class="mr-2">I know a lot of people, but only a few of them are ... friends.</span>
+                        </div>
+                        <div class="input-group">
+                            <input type="radio" id="q2_a" name="q2" value="A">
+                            <label for="q2_a">a. big</label>
+                            <input type="radio" id="q2_b" name="q2" value="B">
+                            <label for="q2_b">b. close</label>
+                            <input type="radio" id="q2_c" name="q2" value="C">
+                            <label for="q2_c">c. near</label>
+                        </div>
+                        <span id="feedback_q2"></span>
+                        <div class="explanation"></div>
+                    </div>
+                    <!-- Question 3 -->
+                    <div class="question-item">
+                        <span class="question-number">3</span>
+                        <div class="question-text flex-grow">
+                            <span class="mr-2">My ... and I first met at a party last year, but we didn't become a couple until recently.</span>
+                        </div>
+                        <div class="input-group">
+                            <input type="radio" id="q3_a" name="q3" value="A">
+                            <label for="q3_a">a. daughter</label>
+                            <input type="radio" id="q3_b" name="q3" value="B">
+                            <label for="q3_b">b. parents</label>
+                            <input type="radio" id="q3_c" name="q3" value="C">
+                            <label for="q3_c">c. partner</label>
+                        </div>
+                        <span id="feedback_q3"></span>
+                        <div class="explanation"></div>
+                    </div>
+                    <!-- Question 4 -->
+                    <div class="question-item">
+                        <span class="question-number">4</span>
+                        <div class="question-text flex-grow">
+                            <span class="mr-2">I work for a small company, so I have few ...</span>
+                        </div>
+                        <div class="input-group">
+                            <input type="radio" id="q4_a" name="q4" value="A">
+                            <label for="q4_a">a. colleagues</label>
+                            <input type="radio" id="q4_b" name="q4" value="B">
+                            <label for="q4_b">b. neighbours</label>
+                            <input type="radio" id="q4_c" name="q4" value="C">
+                            <label for="q4_c">c. teammates</label>
+                        </div>
+                        <span id="feedback_q4"></span>
+                        <div class="explanation"></div>
+                    </div>
+                    <!-- Question 5 -->
+                    <div class="question-item">
+                        <span class="question-number">5</span>
+                        <div class="question-text flex-grow">
+                            <span class="mr-2">My ... and I played well, but we lost the match.</span>
+                        </div>
+                        <div class="input-group">
+                            <input type="radio" id="q5_a" name="q5" value="A">
+                            <label for="q5_a">a. partners</label>
+                            <input type="radio" id="q5_b" name="q5" value="B">
+                            <label for="q5_b">b. teammates</label>
+                            <input type="radio" id="q5_c" name="q5" value="C">
+                            <label for="q5_c">c. colleagues</label>
+                        </div>
+                        <span id="feedback_q5"></span>
+                        <div class="explanation"></div>
+                    </div>
+                    <!-- Question 6 -->
+                    <div class="question-item">
+                        <span class="question-number">6</span>
+                        <div class="question-text flex-grow">
+                            <span class="mr-2">When I was very young at school, I spent my summers at my ... farm in the country.</span>
+                        </div>
+                        <div class="input-group">
+                            <input type="radio" id="q6_a" name="q6" value="A">
+                            <label for="q6_a">a. children's</label>
+                            <input type="radio" id="q6_b" name="q6" value="B">
+                            <label for="q6_b">b. daughter's</label>
+                            <input type="radio" id="q6_c" name="q6" value="C">
+                            <label for="q6_c">c. grandparent's</label>
+                        </div>
+                        <span id="feedback_q6"></span>
+                        <div class="explanation"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-group">
+                <p><strong>1B</strong> Complete the sentences. Use a preposition and the correct form of the words in brackets.</p>
+                <div class="fill-in-container mt-4">
+                    <!-- Example -->
+                    <div class="question-item">
+                        <span class="question-number">1</span>
+                        <p class="mr-2">I'm friendly with. (be / friendly) lots of people in the area, but only a few of them are close friends - old school friends and a couple of teammates from the football club.</p>
+                    </div>
+                    <!-- Question 2 -->
+                    <div class="question-item">
+                        <span class="question-number">2</span>
+                        <p class="mr-2">My grandparents are both really funny. I <input type="text" id="q8" class="fill-in-blank"> (look) to them because they can make anyone laugh.</p>
+                        <span id="feedback_q8"></span>
+                    </div>
+                    <!-- Question 3 -->
+                    <div class="question-item">
+                        <span class="question-number">3</span>
+                        <p class="mr-2">Unfortunately, I <input type="text" id="q9" class="fill-in-blank"> (not take either of them). I'm more similar to my dad, who is very serious!</p>
+                        <span id="feedback_q9"></span>
+                    </div>
+                    <!-- Question 4 -->
+                    <div class="question-item">
+                        <span class="question-number">4</span>
+                        <p class="mr-2">My partner and I <input type="text" id="q10" class="fill-in-blank"> (get / well) when we first met, but these days we have a lot of arguments.</p>
+                        <span id="feedback_q10"></span>
+                    </div>
+                    <!-- Question 5 -->
+                    <div class="question-item">
+                        <span class="question-number">5</span>
+                        <p class="mr-2">I changed jobs last year, but I still <input type="text" id="q11" class="fill-in-blank"> (stay / touch) with my old colleagues.</p>
+                        <span id="feedback_q11"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GRAMMAR section -->
+        <h2 class="section-title">GRAMMAR: present simple and present continuous; state verbs; adverbs of frequency</h2>
+        <div class="task-container">
+            <div class="question-group">
+                <p><strong>3A</strong> The sentences below have a mistake. Choose the best option to correct the mistake.</p>
+                <div class="space-y-4 mt-4">
+                    <!-- Question 1 -->
+                    <div class="question-item">
+                        <span class="question-number">1</span>
+                        <div class="question-text flex-grow">
+                            <span class="mr-2">I <span class="error-sentence">usually sit in an office</span> all day, but I <span class="error-sentence">work</span> from home right now.</span>
+                        </div>
+                        <div class="input-group">
+                            <input type="radio" id="q12_a" name="q12" value="A">
+                            <label for="q12_a">a. I worked</label>
+                            <input type="radio" id="q12_b" name="q12" value="B">
+                            <label for="q12_b">b. I've worked</label>
+                            <input type="radio" id="q12_c" name="q12" value="C">
+                            <label for="q12_c">c. I'm working</label>
+                        </div>
+                        <span id="feedback_q12"></span>
+                        <div class="explanation"></div>
+                    </div>
+                    <!-- Question 2 -->
+                    <div class="question-item">
+                        <span class="question-number">2</span>
+                        <div class="question-text flex-grow">
+                            <span class="mr-2">I like tea, but <span class="error-sentence">I'm preferring</span> coffee these days.</span>
+                        </div>
+                        <div class="input-group">
+                            <input type="radio" id="q13_a" name="q13" value="A">
+                            <label for="q13_a">a. I prefer</label>
+                            <input type="radio" id="q13_b" name="q13" value="B">
+                            <label for="q13_b">b. I've preferred</label>
+                            <input type="radio" id="q13_c" name="q13" value="C">
+                            <label for="q13_c">c. I preferred</label>
+                        </div>
+                        <span id="feedback_q13"></span>
+                        <div class="explanation"></div>
+                    </div>
+                    <!-- Question 3 -->
+                    <div class="question-item">
+                        <span class="question-number">3</span>
+                        <div class="question-text flex-grow">
+                            <span class="mr-2">My car <span class="error-sentence">is needing</span> a good clean at the moment.</span>
+                        </div>
+                        <div class="input-group">
+                            <input type="radio" id="q14_a" name="q14" value="A">
+                            <label for="q14_a">a. needed</label>
+                            <input type="radio" id="q14_b" name="q14" value="B">
+                            <label for="q14_b">b. needs</label>
+                            <input type="radio" id="q14_c" name="q14" value="C">
+                            <label for="q14_c">c. has needed</label>
+                        </div>
+                        <span id="feedback_q14"></span>
+                        <div class="explanation"></div>
+                    </div>
+                    <!-- Question 4 -->
+                    <div class="question-item">
+                        <span class="question-number">4</span>
+                        <div class="question-text flex-grow">
+                            <span class="mr-2">This week and next week, my friend and I <span class="error-sentence">travel</span> around the country.</span>
+                        </div>
+                        <div class="input-group">
+                            <input type="radio" id="q15_a" name="q15" value="A">
+                            <label for="q15_a">a. travelled</label>
+                            <input type="radio" id="q15_b" name="q15" value="B">
+                            <label for="q15_b">b. have travelled</label>
+                            <input type="radio" id="q15_c" name="q15" value="C">
+                            <label for="q15_c">c. are travelling</label>
+                        </div>
+                        <span id="feedback_q15"></span>
+                        <div class="explanation"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons-container">
+            <button id="check-btn" class="button check-button">Проверить</button>
+            <button id="reset-btn" class="button reset-button">Сбросить</button>
+        </div>
+    </div>
+
+    <script>
+        const quizData = {
+            '1A': {
+                'q1': { answer: 'B', explanation: 'Слово "manager" (руководитель) лучше всего подходит, так как только он может повысить зарплату.' },
+                'q2': { answer: 'B', explanation: 'Словосочетание "close friends" означает "близкие друзья".' },
+                'q3': { answer: 'C', explanation: 'Слово "partner" (партнер) используется для обозначения постоянных отношений.' },
+                'q4': { answer: 'A', explanation: 'Слово "colleagues" (коллеги) относится к людям, с которыми вы работаете.' },
+                'q5': { answer: 'B', explanation: 'Слово "teammates" (товарищи по команде) используется в контекте спортивной игры.' },
+                'q6': { answer: 'C', explanation: 'Слово "grandparent\'s" (принадлежащая дедушке/бабушке) относится к ферме.' }
+            },
+            '1B': {
+                'q8': { answer: ['look up to'], explanation: 'Фразовый глагол "look up to" означает "восхищаться кем-то".' },
+                'q9': { answer: ['don\'t take after either of them', 'do not take after either of them'], explanation: 'Фразовый глагол "take after" означает "быть похожим на кого-то".' },
+                'q10': { answer: ['get on'], explanation: 'Фразовый глагол "get on" означает "ладить".' },
+                'q11': { answer: ['stay in touch'], explanation: 'Фразовый глагол "stay in touch" означает "оставаться на связи".' }
+            },
+            '3A': {
+                'q12': { answer: 'C', explanation: 'Правильный вариант — C ("I\'m working"), так как "right now" указывает на действие, происходящее в настоящий момент.' },
+                'q13': { answer: 'A', explanation: 'Правильный вариант — A ("I prefer"), так как глагол "prefer" является глаголом состояния и не используется в Present Continuous.' },
+                'q14': { answer: 'B', explanation: 'Правильный вариант — B ("needs"), так как глагол "need" является глаголом состояния.' },
+                'q15': { answer: 'C', explanation: 'Правильный вариант — C ("are travelling"), так как "this week and next week" указывают на запланированное действие в будущем, что передается через Present Continuous.' }
+            }
+        };
+
+        const normalizeAnswer = (str) => {
+            return str.toLowerCase().replace(/[\s.,?!'’-]/g, '').trim();
+        };
+
+        const checkAnswers = () => {
+            // Check radio button questions
+            const radioQuestions = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q12', 'q13', 'q14', 'q15'];
+            
+            radioQuestions.forEach(id => {
+                const selectedAnswer = document.querySelector(`input[name="${id}"]:checked`);
+                const feedbackElement = document.getElementById(`feedback_${id}`);
+                
+                const quizSection = (['q1', 'q2', 'q3', 'q4', 'q5', 'q6'].includes(id)) ? '1A' : '3A';
+                
+                if (quizData[quizSection] && quizData[quizSection][id]) {
+                    const correctAnswer = quizData[quizSection][id].answer;
+                    const explanation = quizData[quizSection][id].explanation;
+                    const explanationElement = feedbackElement.nextElementSibling;
+
+                    if (selectedAnswer && selectedAnswer.value === correctAnswer) {
+                        feedbackElement.textContent = '✅';
+                        if (explanationElement) {
+                             explanationElement.style.display = 'none';
+                        }
+                    } else {
+                        feedbackElement.textContent = '❌';
+                        if (explanationElement) {
+                             explanationElement.textContent = explanation;
+                             explanationElement.style.display = 'block';
+                        }
+                    }
+                }
+            });
+
+            // Check fill-in-the-blank questions
+            const fillInQuestions = ['q8', 'q9', 'q10', 'q11'];
+
+            fillInQuestions.forEach(id => {
+                const inputElement = document.getElementById(id);
+                if (!inputElement) return;
+
+                const feedbackElement = document.getElementById(`feedback_${id}`);
+                const userAnswer = normalizeAnswer(inputElement.value);
+
+                const quizSection = ['q8', 'q9', 'q10', 'q11'].includes(id) ? '1B' : '3B';
+                
+                if (quizData[quizSection] && quizData[quizSection][id]) {
+                    const correctAnswers = quizData[quizSection][id].answer;
+                    const explanation = quizData[quizSection][id].explanation;
+
+                    let isCorrect = false;
+                    for (const correct of correctAnswers) {
+                        if (normalizeAnswer(correct) === userAnswer) {
+                            isCorrect = true;
+                            break;
+                        }
+                    }
+
+                    if (isCorrect) {
+                        feedbackElement.textContent = '✅';
+                        feedbackElement.classList.remove('feedback-incorrect');
+                        feedbackElement.classList.add('feedback-correct');
+                        let explanationElement = feedbackElement.nextElementSibling;
+                        if (explanationElement && explanationElement.classList.contains('explanation')) {
+                            explanationElement.style.display = 'none';
+                        }
+                    } else {
+                        feedbackElement.textContent = '❌';
+                        feedbackElement.classList.remove('feedback-correct');
+                        feedbackElement.classList.add('feedback-incorrect');
+                        let explanationElement = feedbackElement.nextElementSibling;
+                        if (!explanationElement || !explanationElement.classList.contains('explanation')) {
+                            explanationElement = document.createElement('div');
+                            explanationElement.className = 'explanation';
+                            feedbackElement.parentNode.insertBefore(explanationElement, feedbackElement.nextSibling);
+                        }
+                        explanationElement.textContent = `Правильный ответ: ${correctAnswers.join(' / ')}. ${explanation}`;
+                        explanationElement.style.display = 'block';
+                    }
+                }
+            });
+        };
+
+        const resetAnswers = () => {
+            document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+            document.querySelectorAll('.fill-in-blank').forEach(input => input.value = '');
+            document.querySelectorAll('.feedback-correct, .feedback-incorrect').forEach(el => {
+                el.textContent = '';
+                el.classList.remove('feedback-correct', 'feedback-incorrect');
+            });
+            document.querySelectorAll('.explanation').forEach(el => {
+                el.style.display = 'none';
+                el.textContent = '';
+            });
+        };
+
+        document.getElementById('check-btn').addEventListener('click', checkAnswers);
+        document.getElementById('reset-btn').addEventListener('click', resetAnswers);
+    </script>
+</body>
+</html>
